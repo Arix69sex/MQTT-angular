@@ -10,7 +10,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription;
   topicname: any = 'CO2-concentration';
   concentration = [0, 0, 0];
-  totalConcentration = [0, 0, 0];
   isConnected: boolean = false;
   @ViewChild('msglog', { static: true })
   msglog!: ElementRef; 
@@ -31,11 +30,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
         let payload = message.payload.toString()
         let topic = message.topic
         let id =  +message.topic.substring(message.topic.length - 1)
-        this.totalConcentration[id] += +payload
-        console.log(payload, topic, id, this.totalConcentration[id])
-        this.log('CO2: ' + message.payload.toString() + '<br> for topic: ' + message.topic);
+        console.log(payload, topic, id)
+        this.log(`CO2 concentration for sensor ${id}: ` + message.payload.toString() + '<br> for topic: ' + this.topicname + `/${i + 1}`);
       });
-      this.log('subscribed to topic: ' + this.topicname + `/${i + 1}`)
+      this.log('Subscribed to topic ' + this.topicname + `/${i + 1}`)
     }
   }
 
