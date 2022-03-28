@@ -1,0 +1,22 @@
+#dashboard {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+#result-content {
+    width: 100vw;
+    height: auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}

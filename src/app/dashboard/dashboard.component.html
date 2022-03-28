@@ -1,0 +1,32 @@
+<table>
+    <tr>
+        <td>CO2 Sensor 1</td>
+        <td>Topic: CO2-concentration/1 </td>
+        <td><input [(ngModel)]="concentration[0]" type="number" /></td>
+        <td><button type="button" (click)="sendData(0)">Send</button></td>
+    </tr>
+    <tr>
+        <td>CO2 Sensor 2</td>
+        <td>Topic: CO2-concentration/2 </td>
+        <td><input [(ngModel)]="concentration[1]" type="number" /></td>
+        <td><button type="button" (click)="sendData(1)">Send</button></td>
+    </tr>
+    <tr>
+        <td>CO2 Sensor 3</td>
+        <td>Topic: CO2-concentration/3 </td>
+        <td><input [(ngModel)]="concentration[2]" type="number" /></td>
+        <td><button type="button" (click)="sendData(2)">Send</button></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&nbsp;&nbsp;<button type="button" (click)="clear()">Clear Log</button></td>
+        <td></td>
+    </tr>
+</table>
+<br /><br />
+<div id="result-content">
+    
+    <p [(ngModel)] = "totalConcentration[0]">{{totalConcentration[0]}}</p>
+</div>
+<div #msglog>
+</div>
